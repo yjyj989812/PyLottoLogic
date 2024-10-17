@@ -1,6 +1,6 @@
 import datetime
 
-def next_saturday_timestamp():
+def return_next_saturday_timestamp():
     now = datetime.datetime.now()
     
     # 현재 요일 (월=0, 화=1, ..., 토=5, 일=6)
@@ -18,3 +18,7 @@ def next_saturday_timestamp():
         next_saturday_evening += datetime.timedelta(days=7)
     
     return next_saturday_evening
+
+def reutrn_date_now(foramt="%Y-%m-%d"):
+    now = datetime.datetime.now()
+    return now.strftime(foramt)
