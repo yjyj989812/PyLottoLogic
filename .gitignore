@@ -1,4 +1,6 @@
 # custom
+data
+*.json
 *.ipynb
 doc
 
