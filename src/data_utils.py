@@ -21,6 +21,6 @@ def dump_numbers_to_json(data, file_path="./data/number_count.json"):
 
 def get_data(file_path="./data/number_count.json"):
     with open(file_path, "r") as f:
-        r = json.loads(f)
+        result = json.load(f)
     
-    return get_data
+    return result
