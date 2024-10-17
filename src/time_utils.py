@@ -19,6 +19,5 @@ def return_next_saturday_timestamp():
     
     return next_saturday_evening
 
-def reutrn_date_now(foramt="%Y-%m-%d"):
-    now = datetime.datetime.now()
-    return now.strftime(foramt)
+def return_date(date=datetime.datetime.now(), foramt="%Y-%m-%d"):
+    return date.strftime(foramt)
