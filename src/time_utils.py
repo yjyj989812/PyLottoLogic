@@ -1,6 +1,6 @@
 import datetime
 
-def next_saturday_evening():
+def next_saturday_timestamp():
     now = datetime.datetime.now()
     
     # 현재 요일 (월=0, 화=1, ..., 토=5, 일=6)
