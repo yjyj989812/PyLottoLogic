@@ -10,6 +10,7 @@ def dump_numbers_to_json(data, file_path="./data/number_count.json"):
     json_format = {
         "version": "2024-10-16",
         "statement": "Save count of lotto numbers",
+        "last_update": "2024-10-17",
         "data": {}
     }
 
