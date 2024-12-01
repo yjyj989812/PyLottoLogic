@@ -10,10 +10,11 @@ def init_dataset(target_url, data_path="./data/number_count.json"):
 
 def suggest_numbers(data_path="./data/number_count.json"):
     data = data_utils.get_data(data_path)
-    lotto_timestamp = time_utils.return_next_saturday_timestamp()
+    lotto_timestamps = time_utils.return_next_saturday_timestamp()
+    selected_numbers = [list(random_utils.choice_numbers(data['data'], timestamp)) for timestamp in lotto_timestamps]
+    
+    return {"date": time_utils.return_date(lotto_timestamps[0]), "data": selected_numbers}
 
-    selected_numbers = list(random_utils.choice_numbers(data['data'], lotto_timestamp))
-    return [selected_numbers, time_utils.return_date(lotto_timestamp)]
 
 def main(args):
     if args.url:
@@ -23,12 +24,12 @@ def main(args):
             init_dataset(args.url)
     
     if args.path:
-        numbers, lotto_date = suggest_numbers(data_path=args.path)
+        get_result = suggest_numbers(data_path=args.path)
     else:
-        numbers, lotto_date = suggest_numbers()
+        get_result = suggest_numbers()
 
-    number_result = ', '.join(map(str, numbers))
-    print(f"{lotto_date} suggest numbers: {number_result}")
+    number_result = '\n\t'.join(map(str, get_result['data']))
+    print(f"{get_result['date']}, suggest numbers:\n\t{number_result}")
 
 
 if __name__ == '__main__':

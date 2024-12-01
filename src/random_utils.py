@@ -6,4 +6,4 @@ def choice_numbers(_data, _sid_time, _size=6):
     
     np.random.seed(int(_sid_time.timestamp()))
     selected_numbers = np.random.choice(numbers, size=_size, replace=False, p=np.array(weights) / sum(weights))
-    return selected_numbers
+    return map(int, selected_numbers)
