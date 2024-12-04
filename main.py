@@ -2,6 +2,7 @@ import argparse
 from src import data_utils
 from src import time_utils
 from src import random_utils
+from src import message_utils
 
 def init_dataset(target_url, data_path="./data/number_count.json"):
     request_result = data_utils.crawl_data(target_url)
@@ -29,7 +30,9 @@ def main(args):
         get_result = suggest_numbers()
 
     number_result = '\n\t'.join(map(str, get_result['data']))
-    print(f"{get_result['date']}, suggest numbers:\n\t{number_result}")
+    msg = f"{get_result['date']}, suggest numbers:\n\t{number_result}"
+    message_utils.send_msg_to_discord(msg)
+    print(msg)
 
 
 if __name__ == '__main__':
