@@ -1,5 +1,4 @@
 import requests
-import json
 
 from src.data_utils import get_data
 
